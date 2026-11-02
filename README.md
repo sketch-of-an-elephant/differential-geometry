@@ -4,16 +4,15 @@ We are reading **Jet Nestruev, _Smooth Manifolds and Observables_** (2nd ed.,
 Springer GTM 220).
 
 **Website:** https://sketch-of-an-elephant.github.io/differential-geometry/
-(schedule, members, chapter list, organisational info and compiled solutions).
+(meeting info, schedule, chapter list and compiled solutions).
 
 ## Repository layout
 
 ```
 docs/                     GitHub Pages site (Jekyll)
   _data/schedule.yml      meeting schedule  <- edit this
-  _data/members.yml       group members     <- add yourself here
   _data/chapters.yml      chapter list of the book
-  assets/org-info.pdf     organisational info PDF (shown on the home page)
+  index.md                home page with meeting info and links
 solutions/
   ch01/ ... ch21/         one folder per chapter
 tex/
@@ -62,8 +61,7 @@ an editor, make sure `tex/` is on `TEXINPUTS`, e.g.
 ## Updating the site
 
 - **Schedule:** edit `docs/_data/schedule.yml`.
-- **Members:** edit `docs/_data/members.yml`.
-- **Organisational info:** replace `docs/assets/org-info.pdf`.
+- **Meeting info (time, room, links):** edit `docs/index.md`.
 
 Every push to `main` rebuilds and redeploys the site.
 

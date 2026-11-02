@@ -1,6 +1,6 @@
-# One entry per meeting. Dates are YYYY-MM-DD. `chapters` is free text.
+# One entry per meeting. `chapters` is free text.
 # Leave `presenter` / `notes` empty if not decided yet.
-- date: TBD
+- date: "Fri 6 Nov 2026, 18:00"
   chapters: "1 – Introduction; 2 – Cutoff functions"
   presenter: ""
   notes: "First meeting: logistics, pick a pace"
