@@ -16,17 +16,15 @@ docs/                     GitHub Pages site (Jekyll)
 solutions/
   ch01/ ... ch21/         one folder per chapter
 tex/
-  dgsolution.cls          shared LaTeX class (environments + notation)
-  template.tex            template for a new solution
-Makefile, latexmkrc       local build helpers
+  template.tex            self-contained template for a new solution
+Makefile                  local build helper
 .github/workflows/        CI: compiles every solution and deploys the site
 ```
 
 ## Writing up a solution
 
-1. Copy `tex/template.tex` into the chapter folder (or download
-   [solution-template.zip](https://sketch-of-an-elephant.github.io/differential-geometry/solution-template.zip),
-   which also contains `dgsolution.cls`), named
+1. Copy `tex/template.tex` (a single self-contained file) into the chapter
+   folder, named
    `<exercise>_<your-name>.tex` with the dot in the exercise number
    replaced by a dash, e.g.
 
@@ -37,9 +35,10 @@ Makefile, latexmkrc       local build helpers
    Several people can solve the same exercise; your name keeps files apart.
    Use lowercase, with dashes instead of spaces (e.g. `ignas-j`).
 2. Fill in `\chapter{..}{..}`, `\author{..}`, the `exercise` and `solution`
-   environments. Shared notation (`\R`, `\F`, `\Spec`, `\Der`, `\Diff`,
-   `\dual{F}`, ...) lives in `tex/dgsolution.cls`; add new macros there
-   rather than in your own file so everyone uses the same notation.
+   environments. The preamble holds the shared notation (`\R`, `\F`, `\Spec`,
+   `\Der`, `\Diff`, `\dual{F}`, ...); leave it as is and put any extra macros
+   in the "your own macros" section. If a macro would be useful to everyone,
+   add it to `tex/template.tex` instead.
 3. Build it locally (optional), commit, and open a pull request (or push to
    `main` if you have access). CI compiles everything; once merged, the PDF
    appears on the [Solutions](https://sketch-of-an-elephant.github.io/differential-geometry/solutions/) page.
@@ -51,15 +50,13 @@ Don't commit PDFs, the CI builds them.
 You need a TeX distribution with `latexmk` (TeX Live or MacTeX).
 
 ```sh
-make                                              # build everything
-make solutions/ch03/3-28_sketch-of-an-elephant.pdf  # build one file
-make clean                                        # remove aux files
+make                                     # build everything
+make solutions/ch03/3-28_aleksandras.pdf   # build one file
+make clean                               # remove aux files
 ```
 
-Running `latexmk` from the repository root also works (the `latexmkrc` adds
-`tex/` to the search path). If you compile from inside a chapter folder or in
-an editor, make sure `tex/` is on `TEXINPUTS`, e.g.
-`export TEXINPUTS=/path/to/repo/tex//:`.
+Since every file is self-contained, you can also compile it directly with
+`pdflatex`, in your editor or on Overleaf.
 
 ## Updating the site
 

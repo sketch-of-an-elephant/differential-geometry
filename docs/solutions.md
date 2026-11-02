@@ -10,21 +10,19 @@ permalink: /solutions/
 ## Submitting a solution
 
 1. **Get the template.** Download
-   [**solution-template.zip**]({{ '/solution-template.zip' | relative_url }}),
-   which contains `template.tex` and the class file `dgsolution.cls`. Keep both
-   in the same folder (on Overleaf, upload both into the project). The class
-   defines the `exercise` and `solution` environments and shared notation
-   (`\R`, `\F`, `\Spec`, `\Der`, `\Diff`, ...).
-   You can also view them on GitHub: [`template.tex`]({{ repo }}/blob/main/tex/template.tex),
-   [`dgsolution.cls`]({{ repo }}/blob/main/tex/dgsolution.cls), and a
-   [compiled example]({{ '/template.pdf' | relative_url }}).
+   [**template.tex**]({{ repo }}/raw/main/tex/template.tex)
+   ([view on GitHub]({{ repo }}/blob/main/tex/template.tex),
+   [compiled example]({{ '/template.pdf' | relative_url }})).
+   It is a single self-contained file, so it compiles anywhere, including
+   Overleaf. The preamble defines the `exercise` and `solution` environments
+   and shared notation (`\R`, `\F`, `\Spec`, `\Der`, `\Diff`, ...); please
+   leave it as is and put any extra macros in the "your own macros" section.
 2. **Name it** `<exercise>_<your-name>.tex`, with the dot in the exercise
    number replaced by a dash, and your name in lowercase with dashes instead of
    spaces. Put it in the chapter's folder, e.g. `solutions/ch03/3-28_aleksandras.tex`.
 3. **Fill it in.** Set `\chapter{3}{Algebras and Points}` and `\author{...}`,
    restate the exercise and write your solution. Only commit the `.tex`
-   (and any images it needs), not the PDF or the `.cls` file (the repository
-   already has it, in `tex/`).
+   (and any images it needs), not the PDF.
 4. **Commit it.** Either way works:
    - *In the browser:* open the [chapter folder on GitHub]({{ repo }}/tree/main/solutions),
      click **Add file → Upload files** (or **Create new file**), and choose

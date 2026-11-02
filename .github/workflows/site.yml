@@ -35,7 +35,6 @@ jobs:
         run: |
           find solutions -name '*.pdf' -exec cp --parents {} docs/ \;
           cp tex/template.pdf docs/template.pdf
-          (cd tex && zip -q ../docs/solution-template.zip template.tex dgsolution.cls)
 
       - name: Build site with Jekyll
         uses: actions/jekyll-build-pages@v1
