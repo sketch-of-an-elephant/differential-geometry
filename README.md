@@ -68,4 +68,4 @@ an editor, make sure `tex/` is on `TEXINPUTS`, e.g.
 
 Every push to `main` rebuilds and redeploys the site.
 
-The book itself is **not** committed to this repository.
+The book PDF is in `docs/assets/` and linked from the home page.

@@ -8,9 +8,8 @@ We are reading **Jet Nestruev, _Smooth Manifolds and Observables_**
 the algebra of smooth functions on a manifold (the "observables") rather
 than from charts and atlases.
 
-**The book:** [Smooth Manifolds and Observables on SpringerLink](https://link.springer.com/978-3-030-45652-8).
-If you're on the LMU network (or VPN), you can usually download the PDF there
-through the university's Springer subscription. Otherwise ask in the WhatsApp group.
+**The book:** [download the PDF]({{ '/assets/nestruev-smooth-manifolds-and-observables.pdf' | relative_url }})
+· [SpringerLink page](https://link.springer.com/978-3-030-45652-8)
 
 {% assign next = site.data.schedule | first %}
 ## Next meeting

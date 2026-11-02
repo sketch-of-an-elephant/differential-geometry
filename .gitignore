@@ -12,8 +12,6 @@
 solutions/**/*.pdf
 tex/*.pdf
 
-# The book itself is not to be committed
-*nestruev*.pdf
 
 # Jekyll
 docs/_site/
