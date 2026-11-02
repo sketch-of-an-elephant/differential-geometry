@@ -1,7 +1,7 @@
 # Chapters of Nestruev, "Smooth Manifolds and Observables" (2nd ed.).
 # `page` is the first page of the chapter in the book.
 - {num: 1,  title: "Introduction", page: 1}
-- {num: 2,  title: "Cutoff and Other Special Smooth Functions on R^n", page: 13}
+- {num: 2,  title: "Cutoff and Other Special Smooth Functions on ℝⁿ", page: 13}
 - {num: 3,  title: "Algebras and Points", page: 21}
 - {num: 4,  title: "Smooth Manifolds (Algebraic Definition)", page: 37}
 - {num: 5,  title: "Charts and Atlases", page: 53}
