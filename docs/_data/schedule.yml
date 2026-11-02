@@ -1,6 +1,6 @@
 # One entry per meeting. `chapters` is free text.
 # Leave `presenter` / `notes` empty if not decided yet.
 - date: "Fri 6 Nov 2026, 18:00"
-  chapters: "1 – Introduction; 2 – Cutoff functions"
+  chapters: "Ch. 1 – Introduction (start Ch. 3 – Algebras and Points if time allows)"
   presenter: ""
-  notes: "First meeting: logistics, pick a pace"
+  notes: "First meeting. Room booked 17:30–20:30. Ch. 2 skipped for now."
