@@ -1,5 +1,5 @@
 # Build every solution PDF:   make
-# Build a single one:         make solutions/ch03/3-28_handle.pdf
+# Build a single one:         make solutions/ch03/3-28_aleksandras.pdf
 # Clean auxiliary files:      make clean
 export TEXINPUTS := $(CURDIR)/tex//:$(TEXINPUTS)
 

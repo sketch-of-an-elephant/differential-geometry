@@ -9,16 +9,22 @@ permalink: /solutions/
 
 ## Submitting a solution
 
-1. **Get the template.** Download [`template.tex`]({{ repo }}/blob/main/tex/template.tex)
-   ([raw file]({{ repo }}/raw/main/tex/template.tex), [compiled example]({{ '/template.pdf' | relative_url }})).
-   It uses the shared class [`dgsolution.cls`]({{ repo }}/blob/main/tex/dgsolution.cls),
-   which defines the `exercise` and `solution` environments and common notation
+1. **Get the template.** Download
+   [**solution-template.zip**]({{ '/solution-template.zip' | relative_url }}),
+   which contains `template.tex` and the class file `dgsolution.cls`. Keep both
+   in the same folder (on Overleaf, upload both into the project). The class
+   defines the `exercise` and `solution` environments and shared notation
    (`\R`, `\F`, `\Spec`, `\Der`, `\Diff`, ...).
-2. **Name it** `<exercise>_<github-handle>.tex` with the dot replaced by a dash,
-   and put it in the chapter's folder, e.g. `solutions/ch03/3-28_sketch-of-an-elephant.tex`.
+   You can also view them on GitHub: [`template.tex`]({{ repo }}/blob/main/tex/template.tex),
+   [`dgsolution.cls`]({{ repo }}/blob/main/tex/dgsolution.cls), and a
+   [compiled example]({{ '/template.pdf' | relative_url }}).
+2. **Name it** `<exercise>_<your-name>.tex`, with the dot in the exercise
+   number replaced by a dash, and your name in lowercase with dashes instead of
+   spaces. Put it in the chapter's folder, e.g. `solutions/ch03/3-28_aleksandras.tex`.
 3. **Fill it in.** Set `\chapter{3}{Algebras and Points}` and `\author{...}`,
    restate the exercise and write your solution. Only commit the `.tex`
-   (and any images it needs), not the PDF.
+   (and any images it needs), not the PDF or the `.cls` file (the repository
+   already has it, in `tex/`).
 4. **Commit it.** Either way works:
    - *In the browser:* open the [chapter folder on GitHub]({{ repo }}/tree/main/solutions),
      click **Add file → Upload files** (or **Create new file**), and choose
@@ -27,9 +33,9 @@ permalink: /solutions/
      ```sh
      git clone {{ repo }}.git && cd differential-geometry
      git switch -c ch03-3-28
-     cp tex/template.tex solutions/ch03/3-28_your-handle.tex   # then edit it
-     make solutions/ch03/3-28_your-handle.pdf                   # optional local build
-     git add solutions/ch03/3-28_your-handle.tex
+     cp tex/template.tex solutions/ch03/3-28_your-name.tex   # then edit it
+     make solutions/ch03/3-28_your-name.pdf                   # optional local build
+     git add solutions/ch03/3-28_your-name.tex
      git commit -m "Ch. 3: solution to 3.28"
      git push -u origin ch03-3-28                                # then open a pull request
      ```
@@ -50,7 +56,7 @@ repository and open the pull request from your fork).
 {% if chpdfs.size > 0 %}{% assign any = true %}
 <h3 id="ch{{ nn }}">Chapter {{ c.num }}: {{ c.title }}</h3>
 {% for f in chpdfs %}
-{% assign parts = f.basename | split: "_" %}- [Exercise {{ parts[0] | replace: "-", "." }}]({{ f.path | relative_url }}){% if parts[1] %} — @{{ parts[1] }}{% endif %}{% endfor %}
+{% assign parts = f.basename | split: "_" %}- [Exercise {{ parts[0] | replace: "-", "." }}]({{ f.path | relative_url }}){% if parts[1] %} — {% assign words = parts[1] | split: "-" %}{% assign who = "" %}{% for w in words %}{% assign cw = w | capitalize %}{% assign who = who | append: " " | append: cw %}{% endfor %}{{ who | strip }}{% endif %}{% endfor %}
 {% endif %}
 {% endfor %}
 {% unless any %}_No solutions yet._{% endunless %}

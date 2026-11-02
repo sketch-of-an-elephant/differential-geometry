@@ -24,15 +24,18 @@ Makefile, latexmkrc       local build helpers
 
 ## Writing up a solution
 
-1. Copy `tex/template.tex` into the chapter folder, named
-   `<exercise>_<github-handle>.tex` with the dot in the exercise number
+1. Copy `tex/template.tex` into the chapter folder (or download
+   [solution-template.zip](https://sketch-of-an-elephant.github.io/differential-geometry/solution-template.zip),
+   which also contains `dgsolution.cls`), named
+   `<exercise>_<your-name>.tex` with the dot in the exercise number
    replaced by a dash, e.g.
 
    ```
-   solutions/ch03/3-28_sketch-of-an-elephant.tex
+   solutions/ch03/3-28_aleksandras.tex
    ```
 
-   Several people can solve the same exercise; the handle keeps files apart.
+   Several people can solve the same exercise; your name keeps files apart.
+   Use lowercase, with dashes instead of spaces (e.g. `ignas-j`).
 2. Fill in `\chapter{..}{..}`, `\author{..}`, the `exercise` and `solution`
    environments. Shared notation (`\R`, `\F`, `\Spec`, `\Der`, `\Diff`,
    `\dual{F}`, ...) lives in `tex/dgsolution.cls`; add new macros there
