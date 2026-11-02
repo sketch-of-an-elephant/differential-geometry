@@ -1,2 +1,70 @@
-# differential-geometry
-This is a github repository for the Differential Geometry reading group.
+# Differential Geometry Reading Group
+
+We are reading **Jet Nestruev, _Smooth Manifolds and Observables_** (2nd ed.,
+Springer GTM 220).
+
+**Website:** https://sketch-of-an-elephant.github.io/differential-geometry/
+(schedule, members, chapter list, organisational info and compiled solutions).
+
+## Repository layout
+
+```
+docs/                     GitHub Pages site (Jekyll)
+  _data/schedule.yml      meeting schedule  <- edit this
+  _data/members.yml       group members     <- add yourself here
+  _data/chapters.yml      chapter list of the book
+  assets/org-info.pdf     organisational info PDF (shown on the home page)
+solutions/
+  ch01/ ... ch21/         one folder per chapter
+tex/
+  dgsolution.cls          shared LaTeX class (environments + notation)
+  template.tex            template for a new solution
+Makefile, latexmkrc       local build helpers
+.github/workflows/        CI: compiles every solution and deploys the site
+```
+
+## Writing up a solution
+
+1. Copy `tex/template.tex` into the chapter folder, named
+   `<exercise>_<github-handle>.tex` with the dot in the exercise number
+   replaced by a dash, e.g.
+
+   ```
+   solutions/ch03/3-28_sketch-of-an-elephant.tex
+   ```
+
+   Several people can solve the same exercise; the handle keeps files apart.
+2. Fill in `\chapter{..}{..}`, `\author{..}`, the `exercise` and `solution`
+   environments. Shared notation (`\R`, `\F`, `\Spec`, `\Der`, `\Diff`,
+   `\dual{F}`, ...) lives in `tex/dgsolution.cls`; add new macros there
+   rather than in your own file so everyone uses the same notation.
+3. Build it locally (optional), commit, and open a pull request (or push to
+   `main` if you have access). CI compiles everything; once merged, the PDF
+   appears on the [Solutions](https://sketch-of-an-elephant.github.io/differential-geometry/solutions/) page.
+
+Don't commit PDFs, the CI builds them.
+
+### Building locally
+
+You need a TeX distribution with `latexmk` (TeX Live or MacTeX).
+
+```sh
+make                                              # build everything
+make solutions/ch03/3-28_sketch-of-an-elephant.pdf  # build one file
+make clean                                        # remove aux files
+```
+
+Running `latexmk` from the repository root also works (the `latexmkrc` adds
+`tex/` to the search path). If you compile from inside a chapter folder or in
+an editor, make sure `tex/` is on `TEXINPUTS`, e.g.
+`export TEXINPUTS=/path/to/repo/tex//:`.
+
+## Updating the site
+
+- **Schedule:** edit `docs/_data/schedule.yml`.
+- **Members:** edit `docs/_data/members.yml`.
+- **Organisational info:** replace `docs/assets/org-info.pdf`.
+
+Every push to `main` rebuilds and redeploys the site.
+
+The book itself is **not** committed to this repository.

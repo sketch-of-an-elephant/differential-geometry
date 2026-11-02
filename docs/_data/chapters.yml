@@ -1,0 +1,23 @@
+# Chapters of Nestruev, "Smooth Manifolds and Observables" (2nd ed.).
+# `page` is the first page of the chapter in the book.
+- {num: 1,  title: "Introduction", page: 1}
+- {num: 2,  title: "Cutoff and Other Special Smooth Functions on R^n", page: 13}
+- {num: 3,  title: "Algebras and Points", page: 21}
+- {num: 4,  title: "Smooth Manifolds (Algebraic Definition)", page: 37}
+- {num: 5,  title: "Charts and Atlases", page: 53}
+- {num: 6,  title: "Smooth Maps", page: 65}
+- {num: 7,  title: "Equivalence of Coordinate and Algebraic Definitions", page: 77}
+- {num: 8,  title: "Points, Spectra, and Ghosts", page: 85}
+- {num: 9,  title: "Differential Calculus as Part of Commutative Algebra", page: 101}
+- {num: 10, title: "Symbols and the Hamiltonian Formalism", page: 141}
+- {num: 11, title: "Smooth Bundles", page: 151}
+- {num: 12, title: "Vector Bundles and Projective Modules", page: 171}
+- {num: 13, title: "Localization", page: 203}
+- {num: 14, title: "Differential 1-forms and Jets", page: 223}
+- {num: 15, title: "Functors of the Differential Calculus and their Representations", page: 243}
+- {num: 16, title: "Cosymbols, Tensors, and Smoothness", page: 273}
+- {num: 17, title: "Spencer Complexes and Differential Forms", page: 293}
+- {num: 18, title: "The (Co)Chain Complexes Coming from the Spencer Sequence", page: 323}
+- {num: 19, title: "Differential Forms: Classical and Algebraic Approach", page: 341}
+- {num: 20, title: "Cohomology", page: 363}
+- {num: 21, title: "Differential Operators over Graded Algebras", page: 387}

@@ -1,0 +1,21 @@
+# LaTeX build products (PDFs are built by CI and published on the site)
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.xdv
+solutions/**/*.pdf
+tex/*.pdf
+
+# The book itself is not to be committed
+*nestruev*.pdf
+
+# Jekyll
+docs/_site/
+docs/.jekyll-cache/
+.DS_Store

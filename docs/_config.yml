@@ -1,0 +1,12 @@
+title: Differential Geometry Reading Group
+description: >-
+  Reading Nestruev, "Smooth Manifolds and Observables" (2nd ed., Springer GTM 220).
+theme: minima
+header_pages:
+  - schedule.md
+  - chapters.md
+  - solutions.md
+  - members.md
+markdown: kramdown
+exclude:
+  - README.md
