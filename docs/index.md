@@ -4,8 +4,13 @@ title: Home
 ---
 
 We are reading **Jet Nestruev, _Smooth Manifolds and Observables_**
-(2nd ed., Springer GTM 220), which develops differential geometry from the
-algebra of observables $C^\infty(M)$ rather than from charts.
+(2nd ed., Springer GTM 220, 2020), which builds differential geometry from
+the algebra of smooth functions on a manifold (the "observables") rather
+than from charts and atlases.
+
+**The book:** [Smooth Manifolds and Observables on SpringerLink](https://link.springer.com/978-3-030-45652-8).
+If you're on the LMU network (or VPN), you can usually download the PDF there
+through the university's Springer subscription. Otherwise ask in the WhatsApp group.
 
 {% assign next = site.data.schedule | first %}
 ## Next meeting
@@ -45,14 +50,6 @@ Chapter 2 is mostly technical groundwork (cutoff functions, partitions of
 unity) and the book says it can be skipped on a first reading, so we skip it
 for now and come back to it when needed. Chapters 3 and 4 are where the
 algebraic approach really starts.
-
-## Related resources
-
-- Sean Carroll, _Spacetime and Geometry_, a good companion if you're
-  interested in the general relativity side.
-- The lecture course "Physics and Geometry" runs every Thursday at 14:00 at
-  the LMU physics faculty and covers differential geometry (tangent and
-  vector bundles at the moment).
 
 {% assign org_pdf = site.static_files | where: "path", "/assets/org-info.pdf" | first %}
 {% if org_pdf %}
