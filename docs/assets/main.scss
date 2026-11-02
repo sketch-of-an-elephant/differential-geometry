@@ -1,0 +1,17 @@
+---
+---
+@import "minima";
+
+// Group picture in the top-left corner, next to the site title
+.site-title {
+  display: inline-flex;
+  align-items: center;
+}
+.site-title::before {
+  content: "";
+  flex: none;
+  width: 44px;
+  height: 44px;
+  margin-right: 10px;
+  background: url("{{ '/assets/picture.jpeg' | relative_url }}") center / cover no-repeat;
+}
