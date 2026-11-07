@@ -45,10 +45,51 @@ time a note is merged.
    start a pull request*, or with git. The pull request check compiles the
    annotated book, so a LaTeX error shows up there before merging.
 
-### Building locally (optional)
+## Compiling locally while you write
 
-```sh
-make annotations/annotated-book.pdf
-```
+You don't have to: the pull request check builds the annotated book for
+you. But a local build lets you see your notes before committing, and takes
+only a few seconds.
 
-This needs TeX Live or MacTeX with `latexmk`, and takes a few seconds.
+1. **Install TeX with `latexmk`** (once):
+   - *macOS:* [MacTeX](https://www.tug.org/mactex/).
+   - *Linux:* TeX Live, e.g. on Ubuntu/Debian
+     `sudo apt install latexmk texlive-latex-extra texlive-science texlive-fonts-recommended`.
+   - *Windows:* [MiKTeX](https://miktex.org/) or [TeX Live](https://tug.org/texlive/).
+     `latexmk` also needs Perl ([Strawberry Perl](https://strawberryperl.com/)).
+2. **Get the repository** (once): `git clone {{ repo }}.git`. The build
+   needs the book PDF, which is in the repository at
+   `docs/assets/`, so there is nothing else to download.
+3. **Build**, from the top folder of the repository:
+
+   ```sh
+   make annotations/annotated-book.pdf
+   ```
+
+   and open `annotations/annotated-book.pdf`. Run the same command again
+   after each change. Without `make` (e.g. on Windows), run instead
+
+   ```sh
+   cd annotations
+   latexmk -pdf annotated-book.tex
+   ```
+
+4. **Live preview (optional):** inside `annotations/`, run
+
+   ```sh
+   latexmk -pdf -pvc annotated-book.tex
+   ```
+
+   It opens the PDF and recompiles every time you save a notes file. Stop
+   it with Ctrl+C.
+
+If you compile from an editor (TeXShop, TeXstudio, VS Code with LaTeX
+Workshop, ...), compile `annotations/annotated-book.tex`, not your
+`chNN.tex` file: the chapter files are only lists of notes and don't
+compile on their own. The book is found by a relative path, so the
+compilation must run inside the `annotations/` folder, which editors do by
+default.
+
+A LaTeX error in a note stops the build and the log names the line. Check
+braces first: every `\bookNote{page}{...}` must close its second brace.
+Delete the build leftovers with `make clean`.
