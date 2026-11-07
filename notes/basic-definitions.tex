@@ -1,0 +1,94 @@
+% =====================================================================
+%  Basic definitions -- Nestruev, "Smooth Manifolds and Observables"
+%  Differential Geometry Reading Group
+%
+%  A reference sheet of the definitions we use, in the book's notation.
+%  Add a definition with
+%      \begin{definition}[Geometrical algebra \bk{3.7}]
+%        An $\R$-algebra $\F$ is \term{geometrical} if ...
+%      \end{definition}
+%  where \bk{3.7} cites Section 3.7 of the book. CI builds the PDF and
+%  publishes it on the site. The notation block is the same as in
+%  tex/template.tex.
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage[capitalise]{cleveref}
+
+\setlist{itemsep=2pt,topsep=4pt}
+
+% ---------------------------------------------------------------- environments
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}[definition]{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% \begin{definition}[Name \bk{3.7}]  ->  "Definition 1.2 (Name [3.7])"
+\newcommand{\bk}[1]{\textup{[#1]}}
+% term being defined
+\newcommand{\term}[1]{\textbf{\emph{#1}}}
+
+% ---------------------------------------------------------------- notation
+% Same as tex/template.tex.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\RP}{\mathbb{R}P}
+\newcommand{\F}{\mathcal{F}}            % algebra of observables
+\newcommand{\Cinf}{C^{\infty}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Specm}{\operatorname{Specm}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Der}{\operatorname{D}}     % derivations D(P)
+\newcommand{\Diff}{\operatorname{Diff}} % differential operators Diff_k(P,Q)
+\newcommand{\smbl}{\operatorname{smbl}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Ann}{\operatorname{Ann}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+% |F| : the R-spectrum (dual space) of an R-algebra F
+\newcommand{\dual}[1]{\lvert #1 \rvert}
+
+% ---------------------------------------------------------------- extra notation
+\newcommand{\Spm}{\operatorname{Spm}}
+\newcommand{\Inv}{\operatorname{Inv}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\res}[2]{#1|_{#2}}          % restriction F|_A
+\newcommand{\env}[1]{\overline{#1}}     % smooth envelope
+\newcommand{\HH}{\mathbb{H}}            % half-space R^n_H
+
+\title{Basic Definitions}
+\author{Differential Geometry Reading Group\\[2pt]
+  \small after J.~Nestruev, \emph{Smooth Manifolds and Observables}, 2nd ed.}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent
+Definitions from the book, in its notation. A reference such as \bk{3.7}
+means Section~3.7 of the book.
+
+\tableofcontents
+
+% Add definitions below, under the chapter they come from.
+
+\section{Algebras and points (Chapter 3)}
+
+\end{document}

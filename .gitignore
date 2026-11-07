@@ -11,6 +11,7 @@
 *.xdv
 solutions/**/*.pdf
 tex/*.pdf
+notes/*.pdf
 
 
 # Jekyll
