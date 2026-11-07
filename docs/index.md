@@ -57,6 +57,7 @@ algebraic approach really starts.
 
 ## Links
 
+- [Basic definitions (PDF)]({{ '/basic-definitions.pdf' | relative_url }})
 - [Schedule]({{ '/schedule/' | relative_url }})
 - [Chapter list]({{ '/chapters/' | relative_url }})
 - [Solutions]({{ '/solutions/' | relative_url }})

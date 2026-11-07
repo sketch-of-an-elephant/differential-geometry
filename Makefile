@@ -1,7 +1,7 @@
-# Build every solution PDF:   make
+# Build every PDF:            make
 # Build a single one:         make solutions/ch03/3-28_aleksandras.pdf
 # Clean auxiliary files:      make clean
-SOURCES := $(shell find solutions -name '*.tex') tex/template.tex
+SOURCES := $(shell find solutions -name '*.tex') tex/template.tex notes/basic-definitions.tex
 PDFS    := $(SOURCES:.tex=.pdf)
 
 all: $(PDFS)

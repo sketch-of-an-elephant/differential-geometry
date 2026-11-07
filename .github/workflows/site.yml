@@ -28,13 +28,14 @@ jobs:
             latexmk texlive-latex-recommended texlive-latex-extra \
             texlive-fonts-recommended texlive-science
 
-      - name: Compile LaTeX solutions
+      - name: Compile LaTeX (solutions, template, notes)
         run: make -k all
 
       - name: Copy PDFs into the site
         run: |
           find solutions -name '*.pdf' -exec cp --parents {} docs/ \;
           cp tex/template.pdf docs/template.pdf
+          cp notes/basic-definitions.pdf docs/basic-definitions.pdf
 
       - name: Build site with Jekyll
         uses: actions/jekyll-build-pages@v1

@@ -17,6 +17,8 @@ solutions/
   ch01/ ... ch21/         one folder per chapter
 tex/
   template.tex            self-contained template for a new solution
+notes/
+  basic-definitions.tex   reference sheet of definitions from the book
 Makefile                  local build helper
 .github/workflows/        CI: compiles every solution and deploys the site
 ```
@@ -57,6 +59,13 @@ make clean                               # remove aux files
 
 Since every file is self-contained, you can also compile it directly with
 `pdflatex`, in your editor or on Overleaf.
+
+## Basic definitions
+
+`notes/basic-definitions.tex` collects definitions from the book. Add a
+`definition` environment under the right chapter section, citing the book
+section with `\bk{..}`, e.g. `\begin{definition}[Geometrical algebra \bk{3.7}]`.
+CI builds it and links the PDF from the home page.
 
 ## Updating the site
 
