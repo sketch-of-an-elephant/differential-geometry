@@ -95,7 +95,7 @@
 %  YOUR SOLUTION
 % =====================================================================
 \chapter{3}{Algebras and Points}
-\author{Your Name}
+\author{Aleksandras Melnik}
 \date{\today}
 
 \begin{document}
@@ -116,11 +116,11 @@ and $\F_2$ isomorphic?
 \end{exercise}
 
 \begin{solution}
-We find the manifolds for both algebras, we could just guess them, but keeping with the spirit of the book let us find them from the $\R$-algebra homomorphisms of $\F_i$ to $R$. But before we do that it will be helpful to set out some theory.
+We find the manifolds for both algebras, we could just guess them, but keeping with the spirit of the book let us find them from the $\R$-algebra homomorphisms of $\F_i$ to $\R$. But before we do that it will be helpful to set out some theory.
 
 \begin{definition}[Basis of (a real) Vector Space ]
   For a real vector space $V$ its subset $B\subseteq V$ is called a \textit{basis} if for any $v\in V$ there exists a unique finite set of elements $b_1, \dots, b_n$ from $B$ and a unique set of real scalars $\lambda_1, \dots \lambda_n \in \R$ such that:
-$$v=\lambda_1 b_1+\cdots \lambda_n b_1 $$
+$$v=\lambda_1 b_1+\cdots+\lambda_n b_n $$
 
 In other words, each vector must be expressible as a unique linear combination of the basis elements.
 \end{definition}
@@ -128,7 +128,7 @@ In other words, each vector must be expressible as a unique linear combination o
 A standard result in linear algebra is that all basis are of the same cardinality, which is called \textit{the dimension} of $V$.
 
 \begin{definition}[Linear mapping between (real) vector spaces]
-  For two real vector spaces $V_1$ and $V_2$ a \textit{linear map} (or a vector space homomorphism) is a function $f:V_1\to V_2$ such that for all $u,v\in V$ and $\lambda\in \R$:
+  For two real vector spaces $V_1$ and $V_2$ a \textit{linear map} (or a vector space homomorphism) is a function $f:V_1\to V_2$ such that for all $u,v\in V_1$ and $\lambda\in \R$:
 \begin{itemize}
   \item $f(\lambda v)=\lambda f(v)$
   \item $f(u+v)=f(u)+f(v)$
@@ -136,12 +136,12 @@ A standard result in linear algebra is that all basis are of the same cardinalit
 
 \end{definition}
 
-From these two definitions it follows, that a linear map $f:V_1\to V_2$ is completely determined by the values if takes on a basis $B$ of $V$, because for any element $v\in V_1$:
+From these two definitions it follows, that a linear map $f:V_1\to V_2$ is completely determined by the values it takes on a basis $B$ of $V_1$, because for any element $v\in V_1$:
 
 $$f(v)=f(\lambda_1 b_1+ \cdots\lambda_n b_n)=\lambda_1 f(b_1)+\cdots +\lambda_n f(b_n) $$
 
 
-Now returning to the problem at hand, we are interested in $\R$-algebra homomorphisms from $F_i$ to $\R$, which will ultimately be our ``points''. Since $\R$-algebras are linear spaces (with additional multiplicative) structure, their homomorphisms must also be linear maps. Both of the algebras at hand have the basis $B=\{(1,0), (0,1)\}$, so any homomorphisms $\alpha :F_i\to \R$ will be determined by the two values $\alpha(1,0)$ and $\alpha (0,1)$.
+Now returning to the problem at hand, we are interested in $\R$-algebra homomorphisms from $\F_i$ to $\R$, which will ultimately be our ``points''. Since $\R$-algebras are linear spaces (with additional multiplicative) structure, their homomorphisms must also be linear maps. Both of the algebras at hand have the basis $B=\{(1,0), (0,1)\}$, so any homomorphism $\alpha :\F_i\to \R$ will be determined by the two values $\alpha(1,0)$ and $\alpha (0,1)$.
 
 Furthermore, as a (unital) algebra homomorphism $\alpha$ has to preserve the multiplicative structure and the multiplicative unit, i.e.:
 
@@ -152,9 +152,9 @@ Furthermore, as a (unital) algebra homomorphism $\alpha$ has to preserve the mul
 
 Having made this setup we can go into the specific examples.
 \begin{enumerate}
-  \item First of all the multiplicative unit of $\F_1$ is evidently $(1,1)$, since $(1,1)\cdot (x,y)=(x,y)$ which means that $\alpha(1,1)=1$. Furthermore since $\alpha$ has to preserve multiplication we have that 
+  \item First of all the multiplicative unit of $\F_1$ is evidently $(1,1)$, since $(1,1)\cdot (x,y)=(x,y)$ which means that $\alpha(1,1)=1$, and hence, by linearity, $\alpha(1,0)+\alpha(0,1)=1$. Furthermore since $\alpha$ has to preserve multiplication we have that 
     $$\alpha(1,0)\cdot \alpha(0,1)=\alpha((1,0)\cdot (0,1))=\alpha(0,0)=0$$
-  Where the last equality follows from $\alpha$ being a linear map. These two facts above give the folllowing contrains on $\alpha$:
+  Where the last equality follows from $\alpha$ being a linear map. These two facts above give the following constraints on $\alpha$:
 
   \begin{itemize}
     \item $\alpha(1,0)+\alpha(0,1)=1$
@@ -163,12 +163,12 @@ Having made this setup we can go into the specific examples.
 
   Since these values are real numbers, the only solutions are those where one basis vector takes the value 0 and the other takes the value 1. Indeed, these are the maps:
     \begin{itemize}
-      \item $\alpha_1(x,y):=x$. This is is a homorphism since it is a linear map, i.e. it preserves the vectorial structure, and for the multiplicative structure we have:
+      \item $\alpha_1(x,y):=x$. This is a homomorphism since it is a linear map, i.e. it preserves the vectorial structure, and for the multiplicative structure we have:
         $$
           \alpha_1((x_1,y_1)\cdot(x_2,y_2)) = \alpha_1(x_1 x_2,y_1 y_2)=x_1x_2= \alpha_1(x_1,y_1)
           \cdot\alpha_1(x_2,y_2)$$ 
         
-      It also preserve the multiplicative identity $\alpha_1(1,1)=1$
+      It also preserves the multiplicative identity $\alpha_1(1,1)=1$
     \item The same goes for $\alpha_2(x,y):=y$.
 
 
@@ -182,29 +182,29 @@ Having made this setup we can go into the specific examples.
     \end{itemize}
 
 
-  \item Now for the second algebra $\F_2$, we follow a similar idea. The multipicative identity this time is $(1,0)$ since $(1,0)\cdot (x,y)=(x,y)$, thus $\alpha(1,0)=1$. So we have a fixed value for the first basis vector, how about the second? Well consider:
+  \item Now for the second algebra $\F_2$, we follow a similar idea. The multiplicative identity this time is $(1,0)$ since $(1,0)\cdot (x,y)=(x,y)$, thus $\alpha(1,0)=1$. So we have a fixed value for the first basis vector, how about the second? Well consider:
 
     $\alpha(0,1)\cdot \alpha(0,1)=\alpha((0,1)\cdot (0,1))=\alpha(1,0)=1$
 
-  Thus, either $\alpha(0,1)=1$ or $\alpha(1,0)=-1$, since its square is 1. For completness let's check if both options give us a homomorphism:
+  Thus, either $\alpha(0,1)=1$ or $\alpha(0,1)=-1$, since its square is 1. For completeness let's check if both options give us a homomorphism:
 
   \begin{itemize}
-    \item $\alpha_1 (x,y)=x\alpha_1(1,0)+y\alpha_1(0,1)=x+y$. Evidently it is a linear map and unitality is built into it, so it remains to check whether it preserves the multiplication:
-      $$\alpha_1((x_1,y_1)\cdot (x_2, y_2))= \alpha_1(x_1x_2+y_1y_2, x_1y_2+ x_2y_1)= x_1x_2+y_1y_2+x_1y_2+x_2y_1$$
-    Which is the same as $\alpha(x_1,y_1)\cdot\alpha(x_2,y_2)=(x_1+y_1)(x_2+y_2)$.
+    \item $\beta_1 (x,y)=x\beta_1(1,0)+y\beta_1(0,1)=x+y$. Evidently it is a linear map and unitality is built into it, so it remains to check whether it preserves the multiplication:
+      $$\beta_1((x_1,y_1)\cdot (x_2, y_2))= \beta_1(x_1x_2+y_1y_2, x_1y_2+ x_2y_1)= x_1x_2+y_1y_2+x_1y_2+x_2y_1$$
+    Which is the same as $\beta_1(x_1,y_1)\cdot\beta_1(x_2,y_2)=(x_1+y_1)(x_2+y_2)$.
 
-    \item $\alpha_2 (x,y)=x\alpha_1(1,0)+y\alpha_1(0,1)=x-y$. Evidently it is a linear map and unitality is built into it, so it remains to check whether it preserves the multiplication:
+    \item $\beta_2 (x,y)=x\beta_2(1,0)+y\beta_2(0,1)=x-y$. Evidently it is a linear map and unitality is built into it, so it remains to check whether it preserves the multiplication:
 
 
-      $$\alpha_1((x_1,y_1)\cdot (x_2, y_2))= \alpha_1(x_1x_2+y_1y_2, x_1y_2+ x_2y_1)= x_1x_2+y_1y_2-x_1y_2-x_2y_1$$
-    Which is the same as $\alpha(x_1,y_1)\cdot\alpha(x_2,y_2)=(x_1-y_1)(x_2-y_2)$.
+      $$\beta_2((x_1,y_1)\cdot (x_2, y_2))= \beta_2(x_1x_2+y_1y_2, x_1y_2+ x_2y_1)= x_1x_2+y_1y_2-x_1y_2-x_2y_1$$
+    Which is the same as $\beta_2(x_1,y_1)\cdot\beta_2(x_2,y_2)=(x_1-y_1)(x_2-y_2)$.
   \end{itemize}
 
-  Thus once again our manifold consists of the two points $M=\{\alpha_1, \alpha_2\}$, but this time a different function correspond to an element $(x,y)\in F_2$ namelly:
+  Thus once again our manifold consists of the two points $M_2=\{\beta_1, \beta_2\}$, but this time a different function corresponds to an element $(x,y)\in \F_2$ namely:
 
     \begin{itemize}
-      \item $\alpha_1 \overset{(x,y)}{\mapsto} x+y$
-      \item $\alpha_2  \overset{(x,y)}{\mapsto} x-y$
+      \item $\beta_1 \overset{(x,y)}{\mapsto} x+y$
+      \item $\beta_2  \overset{(x,y)}{\mapsto} x-y$
     \end{itemize}
 
 
