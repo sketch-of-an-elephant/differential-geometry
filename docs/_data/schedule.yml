@@ -2,7 +2,7 @@
 # "Next meeting" on the home page. `chapters` is free text.
 # Leave `presenter` / `notes` empty if not decided yet.
 - date: "Thu 12 Nov 2026, between 16:30 and 18:00 (exact time TBD)"
-  chapters: "TBD"
+  chapters: "Ch. 3 – Algebras and Points"
   presenter: ""
   notes: "Same room (D321). Exact time still to be discussed."
 - date: "Fri 6 Nov 2026, 18:00"
