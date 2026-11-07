@@ -15,6 +15,9 @@ docs/                     GitHub Pages site (Jekyll)
   index.md                home page with meeting info and links
 solutions/
   ch01/ ... ch21/         one folder per chapter
+annotations/
+  chNN.tex                the group's notes on the book, one file per chapter
+  annotated-book.tex      builds the book PDF with the notes in the margin
 tex/
   template.tex            self-contained template for a new solution
 notes/
@@ -22,6 +25,21 @@ notes/
 Makefile                  local build helper
 .github/workflows/        CI: compiles every solution and deploys the site
 ```
+
+## Adding notes to the book
+
+Notes live in `annotations/chNN.tex`, one line per note, keyed by the page
+number printed in the book:
+
+```latex
+\bookNote{37}{Here $\dual{\F}$ is the set of all $\R$-points of $\F$.}
+\bookNote[Aleksandras]{38}{A longer remark with \[ \Spec_\R \F = \dual{\F}. \]}
+```
+
+CI builds `annotated-book.pdf`, the book with the notes typeset in a margin
+next to each page, and publishes it on the site. Full instructions are on
+the [Book notes](https://sketch-of-an-elephant.github.io/differential-geometry/notes/)
+page. Build locally with `make annotations/annotated-book.pdf`.
 
 ## Writing up a solution
 

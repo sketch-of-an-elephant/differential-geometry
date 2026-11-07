@@ -9,6 +9,7 @@ the algebra of smooth functions on a manifold (the "observables") rather
 than from charts and atlases.
 
 **The book:** [download the PDF]({{ '/assets/nestruev-smooth-manifolds-and-observables.pdf' | relative_url }})
+· [annotated by the group]({{ '/annotated-book.pdf' | relative_url }}) ([how to add notes]({{ '/notes/' | relative_url }}))
 · [SpringerLink page](https://link.springer.com/978-3-030-45652-8)
 
 {% assign next = site.data.schedule | first %}
@@ -61,6 +62,7 @@ algebraic approach really starts.
 - [Schedule]({{ '/schedule/' | relative_url }})
 - [Chapter list]({{ '/chapters/' | relative_url }})
 - [Solutions]({{ '/solutions/' | relative_url }})
+- [Book notes]({{ '/notes/' | relative_url }})
 
 ## Contributing solutions
 

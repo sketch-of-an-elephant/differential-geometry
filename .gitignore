@@ -12,6 +12,7 @@
 solutions/**/*.pdf
 tex/*.pdf
 notes/*.pdf
+annotations/*.pdf
 
 
 # Jekyll

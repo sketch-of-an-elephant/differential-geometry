@@ -35,6 +35,7 @@ jobs:
         run: |
           find solutions -name '*.pdf' -exec cp --parents {} docs/ \;
           cp tex/template.pdf docs/template.pdf
+          cp annotations/annotated-book.pdf docs/annotated-book.pdf
           cp notes/basic-definitions.pdf docs/basic-definitions.pdf
 
       - name: Build site with Jekyll
