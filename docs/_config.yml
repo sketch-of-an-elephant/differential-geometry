@@ -6,6 +6,7 @@ header_pages:
   - schedule.md
   - chapters.md
   - solutions.md
+  - notes.md
 markdown: kramdown
 exclude:
   - README.md

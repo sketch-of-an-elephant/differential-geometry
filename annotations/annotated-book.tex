@@ -1,0 +1,159 @@
+% =====================================================================
+%  Annotated book -- Nestruev, "Smooth Manifolds and Observables"
+%  Differential Geometry Reading Group
+%
+%  Builds a copy of the book with the group's notes typeset in a margin
+%  next to the page they refer to. You don't need to edit this file:
+%  notes go in annotations/chNN.tex, e.g.
+%
+%      \bookNote{37}{Here $\dual{\F}$ is the set of all $\R$-points.}
+%      \bookNote[Aleksandras]{38}{A longer remark, with display math
+%        \[ \Spec_\R \F = \dual{\F}. \] }
+%
+%  The first argument is the page number PRINTED in the book (the arabic
+%  numbers, starting with page 1 of Chapter 1). Pages with notes get a
+%  wide margin on the right; all other pages are copied unchanged.
+%  Notes that don't fit in the margin continue on an extra page inserted
+%  right after the book page.
+% =====================================================================
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+
+% ---------------------------------------------------------------- settings
+\newcommand{\bookfile}{../docs/assets/nestruev-smooth-manifolds-and-observables.pdf}
+% PDF page = printed page + offset (front matter is 16 pages)
+\newcommand{\bookoffset}{16}
+\newdimen\notewidth   \notewidth=230pt  % width of the notes column
+\newdimen\notegap     \notegap=18pt     % space around the notes column
+
+% ---------------------------------------------------------------- notation
+% Same as tex/template.tex.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\RP}{\mathbb{R}P}
+\newcommand{\F}{\mathcal{F}}            % algebra of observables
+\newcommand{\Cinf}{C^{\infty}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Specm}{\operatorname{Specm}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Der}{\operatorname{D}}     % derivations D(P)
+\newcommand{\Diff}{\operatorname{Diff}} % differential operators Diff_k(P,Q)
+\newcommand{\smbl}{\operatorname{smbl}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Ann}{\operatorname{Ann}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+% |F| : the R-spectrum (dual space) of an R-algebra F
+\newcommand{\dual}[1]{\lvert #1 \rvert}
+
+% ---------------------------------------------------------------- machinery
+\makeatletter
+\definecolor{notebg}{RGB}{255,250,232}
+\definecolor{noterule}{RGB}{200,160,60}
+
+% \bookNote[author]{printed page}{text}: store the note for that page.
+\newcommand{\bookNote}[3][]{%
+  \@ifundefined{dg@notes@#2}{\@namedef{dg@notes@#2}{}}{}%
+  \expandafter\g@addto@macro\csname dg@notes@#2\endcsname{\dg@onenote{#1}{#3}}%
+  \ignorespaces}
+\newcommand{\dg@onenote}[2]{%
+  \par\noindent{\color{noterule}\rule[0.5ex]{\hsize}{0.4pt}}\par
+  \if\relax\detokenize{#1}\relax\else
+    \noindent{\footnotesize\bfseries\color{noterule!70!black}#1}\par\nobreak
+  \fi
+  #2\par}
+
+% Collect every chapter's notes.
+\newcount\dg@ch
+\dg@ch=0
+\loop\ifnum\dg@ch<30
+  \advance\dg@ch by 1
+  \InputIfFileExists{ch\ifnum\dg@ch<10 0\fi\the\dg@ch.tex}{}{}%
+\repeat
+
+% Ship out raw pages: origin at the top-left corner of the paper.
+\hoffset=-1in \voffset=-1in
+\pdfximage{\bookfile}
+\newcount\dg@npages \dg@npages=\pdflastximagepages
+\newcount\dg@p
+\newcount\dg@printed
+\newbox\dg@book
+\newbox\dg@notes
+\newbox\dg@chunk
+\newdimen\dg@colht
+
+% Typeset the notes for the current page into \dg@notes.
+\newcommand{\dg@setnotes}{%
+  \setbox\dg@notes\vbox{%
+    \hsize=\notewidth \linewidth=\hsize \columnwidth=\hsize
+    \parindent=0pt \parskip=3pt plus 1pt
+    \small \raggedright
+    \abovedisplayskip=4pt \belowdisplayskip=4pt
+    \@nameuse{dg@notes@\the\dg@printed}}}
+
+% One widened page: #1 = left content (book page or empty), the rest of
+% the notes box is split to the column height.
+\newcommand{\dg@shipwide}[2]{%
+  \dg@colht=\ht\dg@book \advance\dg@colht by -2\notegap
+  \advance\dg@colht by -16pt
+  \vbadness=10000 \splittopskip=0pt
+  \setbox\dg@chunk\vsplit\dg@notes to \dg@colht
+  \setbox\dg@chunk\vbox{\unvbox\dg@chunk}% natural height, no stretching
+  \pdfpagewidth=\wd\dg@book \advance\pdfpagewidth by \notewidth
+  \advance\pdfpagewidth by 2\notegap
+  \pdfpageheight=\ht\dg@book
+  \shipout\hbox{%
+    \ifx#1\relax\hbox to \wd\dg@book{\hfil}\else\copy\dg@book\fi
+    \vbox to \ht\dg@book{%
+      \hsize=\dimexpr\notewidth+2\notegap\relax
+      \hrule height 0pt
+      \hbox to \hsize{%
+        \color{notebg}\vrule width \hsize height 0pt depth \ht\dg@book\hss}%
+      \vskip-\ht\dg@book
+      \vskip\notegap
+      \moveright\notegap\hbox{\normalcolor\footnotesize\bfseries
+        Notes on p.~\the\dg@printed#2}%
+      \vskip 4pt
+      \moveright\notegap\box\dg@chunk
+      \vfil}}}
+
+\newcommand{\dg@page}{%
+  \dg@printed=\dg@p \advance\dg@printed by -\bookoffset
+  \setbox\dg@book\hbox{\includegraphics[page=\the\dg@p]{\bookfile}}%
+  \@ifundefined{dg@notes@\the\dg@printed}{%
+    \pdfpagewidth=\wd\dg@book \pdfpageheight=\ht\dg@book
+    \shipout\copy\dg@book}{%
+    \dg@setnotes
+    \dg@shipwide\dg@book{}%
+    {\loop\ifvoid\dg@notes\else
+       \dg@shipwide\relax{ (continued)}%
+     \repeat}}}
+
+\newcommand{\shipbook}{%
+  \dg@p=0
+  \loop\ifnum\dg@p<\dg@npages
+    \advance\dg@p by 1
+    \dg@page
+  \repeat}
+\makeatother
+
+\pdfinfo{/Title (Nestruev, Smooth Manifolds and Observables -- annotated by the reading group)}
+
+\begin{document}
+\shipbook
+\end{document}
