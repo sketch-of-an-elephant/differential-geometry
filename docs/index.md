@@ -18,7 +18,11 @@ than from charts and atlases.
 
 ## When we meet
 
-The first meeting is on **Friday 6 November at 18:00** (Munich time).
+**Next week we meet on Thursday 12 November**, sometime between **16:30 and
+18:00** (Munich time). The exact time is still to be discussed. Same room as
+before (see below).
+
+The first meeting was on Friday 6 November at 18:00.
 The regular weekly slot isn't fixed yet, so please add your availability to the
 [scheduling poll](https://timeful.app/e/BSznn8).
 
@@ -61,6 +65,30 @@ algebraic approach really starts.
 - [Schedule]({{ '/schedule/' | relative_url }})
 - [Chapter list]({{ '/chapters/' | relative_url }})
 - [Solutions]({{ '/solutions/' | relative_url }})
+
+## Basic definitions
+
+[**Basic definitions (PDF)**]({{ '/basic-definitions.pdf' | relative_url }})
+is a shared reference sheet of the definitions from the book, in the book's
+notation. Everyone can add to it. The source is
+[`notes/basic-definitions.tex`](https://github.com/sketch-of-an-elephant/differential-geometry/blob/main/notes/basic-definitions.tex)
+and it uses the same preamble and macros as the solution template.
+
+To add a definition, put a `definition` environment under the section for its
+chapter (add the section if it's missing) and cite the book section with `\bk{..}`:
+
+```latex
+\section{Algebras and points (Chapter 3)}
+
+\begin{definition}[Geometrical algebra \bk{3.7}]
+  An $\R$-algebra $\F$ is \term{geometrical} if
+  $\bigcap_{x \in \dual{\F}} \Ker x = 0$.
+\end{definition}
+```
+
+`\term{..}` marks the word being defined. Commit it the same way as a solution
+(edit the file on GitHub, or with git, and open a pull request). The PDF above
+is rebuilt automatically once it is merged.
 
 ## Contributing solutions
 
